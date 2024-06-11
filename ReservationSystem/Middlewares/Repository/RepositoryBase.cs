@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ReservationSystem.Middlewares.UnitOfWork;
+using System.Linq.Expressions;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace ReservationSystem.Middlewares.Repository
 {
@@ -17,8 +19,16 @@ namespace ReservationSystem.Middlewares.Repository
         }
 
         //Get Request
-        public async Task<ActionResult<IEnumerable<T>>> Get()
+        public async Task<ActionResult<IEnumerable<T>>> Get(List<Expression<Func<T, bool>>> conditions)
         {
+            if (conditions.Any())
+            {
+                var combinedCondition = conditions.Aggregate((current, next) => Expression.Lambda<Func<T, bool>>(
+                    Expression.AndAlso(current.Body, Expression.Invoke(next, current.Parameters)), current.Parameters));
+
+                dbSet = (DbSet<T>)dbSet.Where(combinedCondition);
+            }
+
             var data = await dbSet.ToListAsync();
             return Ok(data);
         }

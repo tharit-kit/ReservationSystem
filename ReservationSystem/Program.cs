@@ -3,6 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using ReservationSystem.Helpers.DataAccess;
 using ReservationSystem.Middlewares.UnitOfWork;
+using ReservationSystem.Services.UserService;
+using ReservationSystem.Services.UserService.Interfaces;
+using System;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,20 +17,32 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//var connection = String.Empty;
-//if (builder.Environment.IsDevelopment())
-//{
-//    builder.Configuration.AddEnvironmentVariables().AddJsonFile("appsettings.Development.json");
-//    connection = builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING");
-//}
-//else
-//{
-//    connection = Environment.GetEnvironmentVariable("AZURE_SQL_CONNECTIONSTRING");
-//}
+/*var connection = String.Empty;
+if (builder.Environment.IsDevelopment())
+{
+    builder.Configuration.AddEnvironmentVariables().AddJsonFile("appsettings.Development.json");
+    connection = builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING");
+}
+else
+{
+    connection = Environment.GetEnvironmentVariable("AZURE_SQL_CONNECTIONSTRING");
+}
 
-//builder.Services.AddDbContext<DataContext>(options =>
-//    options.UseSqlServer(connection));
+builder.Services.AddDbContext<DataContext>(options =>
+    options.UseSqlServer(connection));*/
+
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+builder.Services.AddDbContext<DataContext>((serviceProvider, options) =>
+{
+    var configuration = serviceProvider.GetRequiredService<IConfiguration>();
+    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+});
+
+//======================= ADD DI FOR SERVICES ==============================
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IGetUserService, GetUserService>();
+builder.Services.AddScoped<IAddUserService, AddUserService>();
+//==========================================================================
 
 builder.Services.AddAuthentication(options =>
 {
