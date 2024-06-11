@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ReservationSystem.Models.Requests;
+using ReservationSystem.Services.UserService;
 
 namespace ReservationSystem.Controllers
 {
@@ -6,9 +8,15 @@ namespace ReservationSystem.Controllers
     [Route("[controller]")]
     public class AdminController : ControllerBase
     {
-        public IActionResult Index()
-        {
-            return View();
+        AddUserService _addUserService;
+        public AdminController(AddUserService addUserService) 
+        { 
+            _addUserService = addUserService;
         }
+
+        /*public IActionResult AddUser([FromBody] AddUserRequest request)
+        {
+
+        }*/
     }
 }

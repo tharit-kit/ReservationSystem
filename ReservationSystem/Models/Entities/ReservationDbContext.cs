@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using ReservationSystem.Models.Entities;
 
-namespace ReservationSystem.Helpers.DataAccess;
+namespace ReservationSystem.Models.Entities;
 
-public partial class DataContext : DbContext
+public partial class ReservationDbContext : DbContext
 {
-    public DataContext()
+    public ReservationDbContext()
     {
     }
 
-    public DataContext(DbContextOptions<DataContext> options)
+    public ReservationDbContext(DbContextOptions<ReservationDbContext> options)
         : base(options)
     {
     }

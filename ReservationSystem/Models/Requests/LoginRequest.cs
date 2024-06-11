@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ReservationSystem.Models
+namespace ReservationSystem.Models.Requests
 {
-    public class LoginModel
+    public class LoginRequest
     {
         [Required]
         public required string Email { get; set; }

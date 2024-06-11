@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using ReservationSystem.Models;
+using ReservationSystem.Models.Requests;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -21,7 +21,7 @@ namespace ReservationSystem.Controllers
 
         [HttpPost]
         [Route("login")]
-        public async Task<IActionResult> Login([FromBody] LoginModel model)
+        public async Task<IActionResult> Login([FromBody] LoginRequest model)
         {
             //var user = await userManager.FindByNameAsync(model.Username);
             //if (user != null && await userManager.CheckPasswordAsync(user, model.Password))
