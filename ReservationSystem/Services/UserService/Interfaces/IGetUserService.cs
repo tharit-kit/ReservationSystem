@@ -1,5 +1,6 @@
 ﻿using ReservationSystem.Models.Entities;
-using ReservationSystem.Models.Responses;
+using ReservationSystem.Models.Requests.User;
+using ReservationSystem.Models.Responses.User;
 
 namespace ReservationSystem.Services.UserService.Interfaces
 {
@@ -7,5 +8,6 @@ namespace ReservationSystem.Services.UserService.Interfaces
     {
         Task<GetUserResponse> GetUserByEmail(string email);
         Task<GetUserResponse> GetUserById(int id);
+        Task<GetUserListResponse> GetUserListByPageNo(GetUserListRequest request);
     }
 }
