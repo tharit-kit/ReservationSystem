@@ -3,8 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using ReservationSystem.Helpers.DataAccess;
 using ReservationSystem.Models.Bases;
 using ReservationSystem.Models.Entities;
-using ReservationSystem.Models.Requests;
-using ReservationSystem.Models.Responses;
+using ReservationSystem.Models.Requests.User;
+using ReservationSystem.Models.Responses.User;
 using ReservationSystem.Services.UserService.Interfaces;
 
 namespace ReservationSystem.Services.UserService
@@ -24,15 +24,19 @@ namespace ReservationSystem.Services.UserService
         {
             try
             {
+                // if role = admin, check if curr user is admin or not
+                // ??????????????????????
+
                 // check if there is this user (email) first
-                var userDetail = await _getUserService.GetUserByEmail(request.Email);
-                if (userDetail.Id != 0)
+                var user = await _getUserService.GetUserByEmail(request.Email);
+                if (user != null && user.UserDetail != null && user.UserDetail.Id != 0)
                 {
                     // this email aldready registered
+                    return new AddUserResponse("I01");
                 }
 
                 using var transaction = _context.Database.BeginTransaction();
-                User user = new()
+                User newUser = new()
                 {
                     Email = request.Email,
                     FirstName = request.FirstName,
@@ -41,7 +45,7 @@ namespace ReservationSystem.Services.UserService
                     RoleId = request.RoleId
                 };
                 
-                _context.Users.Add(user);
+                _context.Users.Add(newUser);
                 await _context.SaveChangesAsync();
                 await transaction.CommitAsync();
 

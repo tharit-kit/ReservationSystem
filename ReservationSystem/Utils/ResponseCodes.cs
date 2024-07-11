@@ -8,8 +8,9 @@ namespace ReservationSystem.Utils
         {
             // S-type Code => Success
             { "S01", "Success" },
-            { "E01", "Error" },
-            { "E02", "User not found" },
+            { "I01", "Email already registered" },
+            { "I02", "User not found" },
+            { "E01", "System Error" },
             // Add more codes and descriptions as needed
             // I-type Code => Information
             // W-type Code => Warning

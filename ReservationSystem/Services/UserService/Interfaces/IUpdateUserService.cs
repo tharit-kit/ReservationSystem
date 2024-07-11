@@ -3,8 +3,8 @@ using ReservationSystem.Models.Responses.User;
 
 namespace ReservationSystem.Services.UserService.Interfaces
 {
-    public interface IAddUserService
+    public interface IUpdateUserService
     {
-        Task<AddUserResponse> AddUser(AddUserRequest request);
+        Task<UpdateUserResponse> UpdateUserById(int id, UpdateUserRequest request);
     }
 }

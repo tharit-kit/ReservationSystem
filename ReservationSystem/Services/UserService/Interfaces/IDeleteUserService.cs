@@ -3,8 +3,8 @@ using ReservationSystem.Models.Responses.User;
 
 namespace ReservationSystem.Services.UserService.Interfaces
 {
-    public interface IAddUserService
+    public interface IDeleteUserService
     {
-        Task<AddUserResponse> AddUser(AddUserRequest request);
+        Task<DeleteUserResponse> DeleteUserById(int id);
     }
 }

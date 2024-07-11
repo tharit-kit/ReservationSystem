@@ -1,6 +1,6 @@
 ﻿using ReservationSystem.Models.Bases;
 
-namespace ReservationSystem.Models.Responses
+namespace ReservationSystem.Models.Responses.User
 {
     public class AddUserResponse : ResponseBase
     {
