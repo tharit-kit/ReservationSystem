@@ -25,6 +25,15 @@ In this ASP.NET CORE application, I specifically choose Dependency Injection as 
 ## A work in progress
 This application is a work in progress. Right now I only implemented a User Management in admin page. The other parts of the application will come out later.
 
+Implemented functions:
+- User Management (Admin) - it can add/delete/update/get users from/to the system.
+
+Implementing functions:
+- Login and Authorization features.
+- Owner page for adding their accommodations/hotel.
+- Owner page for showing which user reserved a room in their accommodations/hotel.
+- Home page for doing a reservation (Member/Guest).
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
