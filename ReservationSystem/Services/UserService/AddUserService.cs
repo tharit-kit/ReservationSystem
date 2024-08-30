@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ReservationSystem.Helpers.DataAccess;
+using ReservationSystem.Helpers.Hashing;
 using ReservationSystem.Models.Bases;
 using ReservationSystem.Models.Entities;
 using ReservationSystem.Models.Requests.User;
@@ -29,11 +30,13 @@ namespace ReservationSystem.Services.UserService
 
                 // check if there is this user (email) first
                 var user = await _getUserService.GetUserByEmail(request.Email);
-                if (user != null && user.UserDetail != null && user.UserDetail.Id != 0)
+                if (user != null && user.Id != 0)
                 {
                     // this email aldready registered
                     return new AddUserResponse("I01");
                 }
+
+                var hashedPassword = HashingPassword.HashPasword(request.Password, out var generatedSalt);
 
                 using var transaction = _context.Database.BeginTransaction();
                 User newUser = new()
@@ -41,7 +44,8 @@ namespace ReservationSystem.Services.UserService
                     Email = request.Email,
                     FirstName = request.FirstName,
                     LastName = request.LastName,
-                    EncryptedPassword = request.Password,
+                    EncryptedPassword = hashedPassword,
+                    GeneratedSalt = generatedSalt,
                     RoleId = request.RoleId
                 };
                 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ReservationSystem.Helpers.DataAccess;
+using ReservationSystem.Models.Entities;
 using ReservationSystem.Models.Responses.Role;
 using ReservationSystem.Services.MasterService.Interface;
 using System.Linq;
@@ -15,29 +16,21 @@ namespace ReservationSystem.Services.MasterService
             _context = context;
         }
 
-        public async Task<GetRoleListResponse> GetRoles()
+        public async Task<List<Role>> GetRoles()
         {
             try
             {
                 var roles = await _context.Roles.ToListAsync();
 
-                if (roles == null)
-                {
-                    return new GetRoleListResponse("S02");
+                if (roles == null) { 
+                    return new List<Role> { };
                 }
 
-                return new GetRoleListResponse("S01")
-                {
-                    RoleList = roles.Select(s => new RoleModel
-                    {
-                        Id = s.Id,
-                        Description = s.Description,
-                    }).ToList(),
-                };
+                return roles;
             }
             catch (Exception)
             {
-
+                return new List<Role> { };
                 throw;
             }
         }
