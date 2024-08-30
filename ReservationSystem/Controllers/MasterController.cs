@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ReservationSystem.Models.Requests.User;
+using ReservationSystem.Models.Responses.Role;
 using ReservationSystem.Services.MasterService.Interface;
 using ReservationSystem.Services.UserService;
 using ReservationSystem.Services.UserService.Interfaces;
@@ -7,7 +8,7 @@ using ReservationSystem.Services.UserService.Interfaces;
 namespace ReservationSystem.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class MasterController : ControllerBase
     {
         IGetMasterService _getMasterService;
@@ -18,17 +19,29 @@ namespace ReservationSystem.Controllers
         }
 
         [HttpGet("roles")]
-        public async Task<IActionResult> GetUsersByPageNo()
+        public async Task<IActionResult> GetRoles()
         {
             try
             {
                 var roles = await _getMasterService.GetRoles();
 
-                return Ok(roles);
+                if (roles == null)
+                {
+                    return Ok(new GetRoleListResponse("S02"));
+                }
+
+                return Ok(new GetRoleListResponse("S01")
+                {
+                    RoleList = roles.Select(s => new RoleModel
+                    {
+                        Id = s.Id,
+                        Description = s.Description,
+                    }).ToList(),
+                });
             }
             catch (Exception)
             {
-
+                return StatusCode(500, new GetRoleListResponse("E01"));
                 throw;
             }
         }

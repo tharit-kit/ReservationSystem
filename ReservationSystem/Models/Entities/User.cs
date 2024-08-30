@@ -15,7 +15,9 @@ public partial class User
 
     public string Email { get; set; } = null!;
 
-    public string EncryptedPassword { get; set; } = null!;
+    public string? EncryptedPassword { get; set; }
+
+    public byte[]? GeneratedSalt { get; set; }
 
     public virtual Role Role { get; set; } = null!;
 }

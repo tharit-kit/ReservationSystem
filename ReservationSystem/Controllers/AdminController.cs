@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ReservationSystem.Models.Entities;
 using ReservationSystem.Models.Requests;
 using ReservationSystem.Models.Requests.User;
@@ -8,7 +9,8 @@ using ReservationSystem.Services.UserService.Interfaces;
 namespace ReservationSystem.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Authorize(Policy = "RequireAdministratorRole")]
+    [Route("api/[controller]")]
     public class AdminController : ControllerBase
     {
         private readonly IAddUserService _addUserService;
@@ -24,6 +26,7 @@ namespace ReservationSystem.Controllers
             _updateUserService = updateUserService;
         }
 
+        //[Authorize]
         [HttpGet("users")]
         public async Task<IActionResult> GetUsersByPageNo([FromQuery] GetUserListRequest request)
         {

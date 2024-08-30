@@ -6,7 +6,7 @@ namespace ReservationSystem.Services.UserService.Interfaces
 {
     public interface IGetUserService
     {
-        Task<GetUserResponse> GetUserByEmail(string email);
+        Task<User> GetUserByEmail(string email);
         Task<GetUserResponse> GetUserById(int id);
         Task<GetUserListResponse> GetUserListByPageNo(GetUserListRequest request);
     }

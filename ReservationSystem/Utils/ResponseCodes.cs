@@ -8,13 +8,13 @@ namespace ReservationSystem.Utils
         {
             // S-type Code => Success
             { "S01", "Success" },
-            { "I01", "Email already registered" },
-            { "I02", "User not found" },
-            { "E01", "System Error" },
             // Add more codes and descriptions as needed
             // I-type Code => Information
+            { "I01", "Email already registered" },
+            { "I02", "User not found" },
             // W-type Code => Warning
             // E-type Code => Error
+            { "E01", "System Error" },
         };
 
         public static string GetDescription(string code)

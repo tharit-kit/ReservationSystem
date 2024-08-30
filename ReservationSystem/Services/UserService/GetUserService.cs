@@ -17,7 +17,7 @@ namespace ReservationSystem.Services.UserService
             _context = context;
         }
 
-        public async Task<GetUserResponse> GetUserByEmail(string email)
+        public async Task<User> GetUserByEmail(string email)
         {
             try
             {
@@ -25,10 +25,12 @@ namespace ReservationSystem.Services.UserService
 
                 if (user == null)
                 {
-                    return new GetUserResponse("I02");
+                    return new User();
                 }
 
-                var detail = new UserModel() { 
+                return user;
+
+                /*var detail = new UserModel() { 
                     Id = user.Id,
                     Email = user.Email,
                     FirstName = user.FirstName,
@@ -39,11 +41,11 @@ namespace ReservationSystem.Services.UserService
                 return new GetUserResponse("S01")
                 {
                     UserDetail = detail
-                };
+                };*/
             }
             catch (Exception)
             {
-                return new GetUserResponse("E01");
+                return new User();
                 throw;
             }
         }
