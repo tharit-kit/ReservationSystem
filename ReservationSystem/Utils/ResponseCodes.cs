@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace ReservationSystem.Utils
+namespace ReservationSystem.API.Utils
 {
     public static class ResponseCodes
     {
@@ -8,7 +8,6 @@ namespace ReservationSystem.Utils
         {
             // S-type Code => Success
             { "S01", "Success" },
-            // Add more codes and descriptions as needed
             // I-type Code => Information
             { "I01", "Email already registered" },
             { "I02", "User not found" },

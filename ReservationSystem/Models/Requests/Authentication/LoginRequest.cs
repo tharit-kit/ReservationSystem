@@ -1,4 +1,4 @@
-﻿namespace ReservationSystem.Models.Requests.Authentication
+﻿namespace ReservationSystem.API.Models.Requests.Authentication
 {
     public class LoginRequest
     {

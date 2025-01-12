@@ -19,18 +19,24 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Azure.Identity" Version="1.11.2" />
+    <PackageReference Include="Azure.Identity" Version="1.13.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.4" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.4" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.4">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="7.2.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Middlewares\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ReservationSystem.Application\ReservationSystem.Application.csproj" />
+    <ProjectReference Include="..\ReservationSystem.Domain\ReservationSystem.Domain.csproj" />
+    <ProjectReference Include="..\ReservationSystem.Infrastructure\ReservationSystem.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

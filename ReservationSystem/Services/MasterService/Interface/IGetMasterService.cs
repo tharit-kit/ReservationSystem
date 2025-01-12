@@ -1,8 +1,8 @@
-﻿using ReservationSystem.Models.Entities;
+﻿using ReservationSystem.API.Models.Entities;
 using ReservationSystem.Models.Responses.Role;
 using ReservationSystem.Models.Responses.User;
 
-namespace ReservationSystem.Services.MasterService.Interface
+namespace ReservationSystem.API.Services.MasterService.Interface
 {
     public interface IGetMasterService
     {

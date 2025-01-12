@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using ReservationSystem.Models.Entities;
+using ReservationSystem.API.Models.Entities;
 
-namespace ReservationSystem.Helpers.DataAccess;
+namespace ReservationSystem.API.Helpers.DataAccess;
 
 public partial class DataContext : DbContext
 {

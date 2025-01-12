@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ReservationSystem.Helpers.DataAccess;
-using ReservationSystem.Models.Entities;
+using ReservationSystem.API.Helpers.DataAccess;
+using ReservationSystem.API.Models.Entities;
+using ReservationSystem.API.Services.MasterService.Interface;
 using ReservationSystem.Models.Responses.Role;
-using ReservationSystem.Services.MasterService.Interface;
 using System.Linq;
 
-namespace ReservationSystem.Services.MasterService
+namespace ReservationSystem.API.Services.MasterService
 {
     public class GetMasterService : IGetMasterService
     {
@@ -22,7 +22,8 @@ namespace ReservationSystem.Services.MasterService
             {
                 var roles = await _context.Roles.ToListAsync();
 
-                if (roles == null) { 
+                if (roles == null)
+                {
                     return new List<Role> { };
                 }
 

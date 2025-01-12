@@ -1,7 +1,7 @@
-﻿using ReservationSystem.Models.Bases;
+﻿using ReservationSystem.API.Models.Bases;
 using System.Text.Json.Serialization;
 
-namespace ReservationSystem.Models.Responses.Role
+namespace ReservationSystem.API.Models.Responses.Role
 {
     public class GetRoleByIdResponse : ResponseBase
     {

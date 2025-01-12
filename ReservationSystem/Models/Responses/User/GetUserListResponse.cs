@@ -1,8 +1,7 @@
-﻿using ReservationSystem.Models.Bases;
-using ReservationSystem.Models.Entities;
+﻿using ReservationSystem.API.Models.Bases;
 using System.Text.Json.Serialization;
 
-namespace ReservationSystem.Models.Responses.User
+namespace ReservationSystem.API.Models.Responses.User
 {
     public class GetUserListResponse : ResponseBase
     {

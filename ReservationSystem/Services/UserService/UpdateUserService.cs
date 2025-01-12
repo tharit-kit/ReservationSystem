@@ -1,10 +1,10 @@
-﻿using ReservationSystem.Helpers.DataAccess;
-using ReservationSystem.Models.Requests.User;
-using ReservationSystem.Models.Responses.User;
-using ReservationSystem.Services.UserService.Interfaces;
+﻿using ReservationSystem.API.Helpers.DataAccess;
+using ReservationSystem.API.Models.Requests.User;
+using ReservationSystem.API.Models.Responses.User;
+using ReservationSystem.API.Services.UserService.Interfaces;
 using ReservationSystem.Utils;
 
-namespace ReservationSystem.Services.UserService
+namespace ReservationSystem.API.Services.UserService
 {
     public class UpdateUserService : IUpdateUserService
     {
@@ -23,7 +23,8 @@ namespace ReservationSystem.Services.UserService
             {
                 //var user = await _getUserService.GetUserById(id);
                 var user = await _context.Users.FindAsync(id);
-                if (user == null) {
+                if (user == null)
+                {
                     return new UpdateUserResponse("I02");
                 }
 

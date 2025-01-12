@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using ReservationSystem.API;
 
-namespace ReservationSystem.Controllers
+namespace ReservationSystem.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]

@@ -1,8 +1,8 @@
-﻿using ReservationSystem.Models.Entities;
-using ReservationSystem.Models.Requests.User;
-using ReservationSystem.Models.Responses.User;
+﻿using ReservationSystem.API.Models.Entities;
+using ReservationSystem.API.Models.Requests.User;
+using ReservationSystem.API.Models.Responses.User;
 
-namespace ReservationSystem.Services.UserService.Interfaces
+namespace ReservationSystem.API.Services.UserService.Interfaces
 {
     public interface IGetUserService
     {

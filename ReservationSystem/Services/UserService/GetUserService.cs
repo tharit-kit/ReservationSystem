@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ReservationSystem.Helpers.DataAccess;
-using ReservationSystem.Helpers.Pagination;
-using ReservationSystem.Models.Entities;
-using ReservationSystem.Models.Requests.User;
-using ReservationSystem.Models.Responses.User;
-using ReservationSystem.Services.UserService.Interfaces;
+using ReservationSystem.API.Helpers.DataAccess;
+using ReservationSystem.API.Helpers.Pagination;
+using ReservationSystem.API.Models.Entities;
+using ReservationSystem.API.Models.Requests.User;
+using ReservationSystem.API.Models.Responses.User;
+using ReservationSystem.API.Services.UserService.Interfaces;
 
-namespace ReservationSystem.Services.UserService
+namespace ReservationSystem.API.Services.UserService
 {
     public class GetUserService : IGetUserService
     {

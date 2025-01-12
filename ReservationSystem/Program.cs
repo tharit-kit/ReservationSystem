@@ -1,17 +1,19 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using ReservationSystem.Helpers.DataAccess;
-using ReservationSystem.Services.MasterService;
-using ReservationSystem.Services.MasterService.Interface;
+using ReservationSystem.API.Helpers.DataAccess;
+using ReservationSystem.API.Services.MasterService;
+using ReservationSystem.API.Services.MasterService.Interface;
+using ReservationSystem.API.Services.UserService;
+using ReservationSystem.API.Services.UserService.Interfaces;
+
 
 //using ReservationSystem.Middlewares.UnitOfWork;
-using ReservationSystem.Services.UserService;
-using ReservationSystem.Services.UserService.Interfaces;
 using System;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Logging.ClearProviders().AddConsole();
 
 // Add services to the container.
 builder.Services.AddAuthentication(options =>

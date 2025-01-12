@@ -1,4 +1,4 @@
-﻿namespace ReservationSystem.Models.Responses.Role
+﻿namespace ReservationSystem.API.Models.Responses.Role
 {
     public class RoleModel
     {

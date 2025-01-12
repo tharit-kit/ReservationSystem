@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ReservationSystem.API.Services.MasterService.Interface;
 using ReservationSystem.Models.Requests.User;
 using ReservationSystem.Models.Responses.Role;
-using ReservationSystem.Services.MasterService.Interface;
 using ReservationSystem.Services.UserService;
 using ReservationSystem.Services.UserService.Interfaces;
 
-namespace ReservationSystem.Controllers
+namespace ReservationSystem.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ReservationSystem.Utils;
+using ReservationSystem.API.Utils;
 using System.ComponentModel.DataAnnotations;
 
-namespace ReservationSystem.Models.Bases
+namespace ReservationSystem.API.Models.Bases
 {
     public abstract class ResponseBase
     {

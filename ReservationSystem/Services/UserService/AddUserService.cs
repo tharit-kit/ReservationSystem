@@ -1,14 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ReservationSystem.Helpers.DataAccess;
-using ReservationSystem.Helpers.Hashing;
-using ReservationSystem.Models.Bases;
-using ReservationSystem.Models.Entities;
-using ReservationSystem.Models.Requests.User;
-using ReservationSystem.Models.Responses.User;
-using ReservationSystem.Services.UserService.Interfaces;
+using ReservationSystem.API.Helpers.DataAccess;
+using ReservationSystem.API.Helpers.Hashing;
+using ReservationSystem.API.Models.Entities;
+using ReservationSystem.API.Models.Requests.User;
+using ReservationSystem.API.Models.Responses.User;
+using ReservationSystem.API.Services.UserService.Interfaces;
 
-namespace ReservationSystem.Services.UserService
+namespace ReservationSystem.API.Services.UserService
 {
     public class AddUserService : IAddUserService
     {
@@ -48,7 +47,7 @@ namespace ReservationSystem.Services.UserService
                     GeneratedSalt = generatedSalt,
                     RoleId = request.RoleId
                 };
-                
+
                 _context.Users.Add(newUser);
                 await _context.SaveChangesAsync();
                 await transaction.CommitAsync();

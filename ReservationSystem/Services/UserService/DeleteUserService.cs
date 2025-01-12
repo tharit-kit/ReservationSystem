@@ -1,10 +1,10 @@
 ﻿using Azure.Core;
-using ReservationSystem.Helpers.DataAccess;
+using ReservationSystem.API.Helpers.DataAccess;
+using ReservationSystem.API.Models.Responses.User;
+using ReservationSystem.API.Services.UserService.Interfaces;
 using ReservationSystem.Models.Entities;
-using ReservationSystem.Models.Responses.User;
-using ReservationSystem.Services.UserService.Interfaces;
 
-namespace ReservationSystem.Services.UserService
+namespace ReservationSystem.API.Services.UserService
 {
     public class DeleteUserService : IDeleteUserService
     {

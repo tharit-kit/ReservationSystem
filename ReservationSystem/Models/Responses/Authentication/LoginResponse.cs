@@ -1,6 +1,6 @@
-﻿using ReservationSystem.Models.Bases;
+﻿using ReservationSystem.API.Models.Bases;
 
-namespace ReservationSystem.Models.Responses.Authentication
+namespace ReservationSystem.API.Models.Responses.Authentication
 {
     public class LoginResponse : ResponseBase
     {

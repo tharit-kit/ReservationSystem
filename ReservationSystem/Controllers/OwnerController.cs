@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace ReservationSystem.Controllers
+namespace ReservationSystem.API.Controllers
 {
     public class OwnerController : Controller
     {

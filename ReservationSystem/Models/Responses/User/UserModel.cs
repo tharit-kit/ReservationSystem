@@ -1,4 +1,4 @@
-﻿namespace ReservationSystem.Models.Responses.User
+﻿namespace ReservationSystem.API.Models.Responses.User
 {
     public class UserModel
     {

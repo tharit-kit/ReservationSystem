@@ -1,12 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ReservationSystem.Models.Entities;
-using ReservationSystem.Models.Requests;
-using ReservationSystem.Models.Requests.User;
-using ReservationSystem.Models.Responses.User;
-using ReservationSystem.Services.UserService.Interfaces;
+using ReservationSystem.API.Models.Requests.User;
+using ReservationSystem.API.Models.Responses.User;
+using ReservationSystem.API.Services.UserService.Interfaces;
 
-namespace ReservationSystem.Controllers
+namespace ReservationSystem.API.Controllers
 {
     [ApiController]
     [Authorize(Policy = "RequireAdministratorRole")]

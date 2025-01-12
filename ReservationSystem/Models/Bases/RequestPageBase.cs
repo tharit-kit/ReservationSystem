@@ -1,4 +1,4 @@
-﻿namespace ReservationSystem.Models.Bases
+﻿namespace ReservationSystem.API.Models.Bases
 {
     public abstract class RequestPageBase
     {

@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace ReservationSystem.Helpers.Hashing
+namespace ReservationSystem.API.Helpers.Hashing
 {
     public static class HashingPassword
     {
@@ -25,7 +25,8 @@ namespace ReservationSystem.Helpers.Hashing
 
         public static bool VerifyPassword(string password, string? hash, byte[]? salt)
         {
-            if (hash == null || salt == null) { 
+            if (hash == null || salt == null)
+            {
                 return false;
             }
 

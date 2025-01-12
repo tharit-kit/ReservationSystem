@@ -1,4 +1,4 @@
-﻿namespace ReservationSystem.Helpers.Pagination
+﻿namespace ReservationSystem.API.Helpers.Pagination
 {
     public static class PagingExtensions
     {

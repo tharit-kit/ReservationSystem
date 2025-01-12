@@ -1,6 +1,6 @@
-﻿using ReservationSystem.Models.Bases;
+﻿using ReservationSystem.API.Models.Bases;
 
-namespace ReservationSystem.Models.Responses.User
+namespace ReservationSystem.API.Models.Responses.User
 {
     public class UpdateUserResponse : ResponseBase
     {

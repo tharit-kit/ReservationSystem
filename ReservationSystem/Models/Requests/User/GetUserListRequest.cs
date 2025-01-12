@@ -1,6 +1,6 @@
-﻿using ReservationSystem.Models.Bases;
+﻿using ReservationSystem.API.Models.Bases;
 
-namespace ReservationSystem.Models.Requests.User
+namespace ReservationSystem.API.Models.Requests.User
 {
     public class GetUserListRequest : RequestPageBase
     {

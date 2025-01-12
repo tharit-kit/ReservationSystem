@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace ReservationSystem.Models.Requests.User
+namespace ReservationSystem.API.Models.Requests.User
 {
     public class UpdateUserRequest
     {

@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using ReservationSystem.Models.Responses.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using ReservationSystem.Models.Requests.Authentication;
-using ReservationSystem.Services.MasterService.Interface;
-using ReservationSystem.Services.UserService.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using ReservationSystem.Helpers.Hashing;
+using ReservationSystem.API.Helpers.Hashing;
+using ReservationSystem.API.Services.MasterService.Interface;
+using ReservationSystem.API.Services.UserService.Interfaces;
+using ReservationSystem.API.Models.Requests.Authentication;
+using ReservationSystem.API.Models.Responses.Authentication;
 
-namespace ReservationSystem.Controllers
+namespace ReservationSystem.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

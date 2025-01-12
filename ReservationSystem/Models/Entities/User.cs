@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ReservationSystem.Models.Entities;
+namespace ReservationSystem.API.Models.Entities;
 
 public partial class User
 {
